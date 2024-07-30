@@ -124,3 +124,4 @@ const Cart = ({ onContinueShopping }) => {
 };
 
 export default Cart;
+

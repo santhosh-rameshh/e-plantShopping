@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProductList from './ProductList';
+import Cart from './CartItem';
 import './App.css';
 import AboutUs from './AboutUs';
 
@@ -13,6 +15,7 @@ function App() {
   };
 
   return (
+    <Router>
     <div className="app-container">
       <div className={`landing-page ${showProductList ? 'fade-out' : ''}`}>
         <div className="background-image"></div>
@@ -33,13 +36,18 @@ function App() {
 
       </div>
       <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
-        <ProductList />
+      <Routes>
+            <Route path="/" element={<ProductList />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+          <ProductList />
       </div>
+      
     </div>
+    </Router>
   );
 }
 
 export default App;
-
 
 
